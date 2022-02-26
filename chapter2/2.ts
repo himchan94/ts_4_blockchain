@@ -140,10 +140,12 @@ person2 = JSON.parse('{"adress":"25 Broadway"}');
 
 // console.log(person2.address) 에러코드 발생
 
-const isPerson = (object: any): object is Person => "address" in object;
+// const isPerson = (object: any): object is Human => "address" in object;
+const isPerson = (object: any): object is Human =>
+  !!object && "address" in object;
 
-if (isPerson(person2)) {
-  console.log(person2.address);
+if (isPerson(person1)) {
+  console.log(person1.address);
 } else {
-  console.log("person2 is not a Person");
+  console.log("person1 is not a Person");
 }
